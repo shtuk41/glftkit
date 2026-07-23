@@ -42,12 +42,6 @@ void OptionsReader::Init()
 	int height = ConvertCharToInt(application_node->first_attribute("height")->value());
 
 	applicationWindow = std::make_unique<ApplicationWindow>(x,y,width,height);
-
-	//configuration file options
-	const xml_node<>* configurationFile_node = root_node->first_node("configurationFile");
-	fs::path configurationFilePath = ConvertCharToPath(configurationFile_node->first_attribute("path")->value());
-
-	configurationFile = std::make_unique<ConfigurationFile>(configurationFilePath);
 }
 
 

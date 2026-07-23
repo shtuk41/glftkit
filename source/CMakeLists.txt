@@ -96,11 +96,11 @@ target_link_libraries(glftkit PRIVATE
 
 add_custom_command(TARGET glftkit POST_BUILD
     # Copy options.xml to both locations
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/options.xml" "${CMAKE_SOURCE_DIR}/build/src/options.xml"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/options.xml" "${CMAKE_SOURCE_DIR}/build/source/options.xml"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/options.xml" "${CMAKE_SOURCE_DIR}/build/bin/options.xml"
     
      # Copy shaders directory to both locations
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/shaders" "${CMAKE_BINARY_DIR}/src/shaders"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/shaders" "${CMAKE_BINARY_DIR}/source/shaders"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/shaders" "${CMAKE_BINARY_DIR}/bin/shaders"
 )
 

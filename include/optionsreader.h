@@ -25,16 +25,6 @@ namespace options_reader
 		int height;
 	};
 
-	class ConfigurationFile
-	{
-	public:
-		explicit ConfigurationFile(const fs::path &filePath) : filePath(filePath) {}
-		fs::path GetPath() const { return filePath; }
-
-	private:
-		fs::path filePath;
-	};
-
 	class OptionsReader
 	{
 	public:
@@ -52,18 +42,12 @@ namespace options_reader
 			return Instance().applicationWindow.get();
 		}
 
-		static const ConfigurationFile* GetConfigurationFileOptions()
-		{
-			return Instance().configurationFile.get();
-		}
-
 	private:
 		OptionsReader() { Init(); }
 		~OptionsReader() = default;
 
 		void Init();
 		std::unique_ptr<ApplicationWindow> applicationWindow;
-		std::unique_ptr<ConfigurationFile> configurationFile;
 	};
 
 }
